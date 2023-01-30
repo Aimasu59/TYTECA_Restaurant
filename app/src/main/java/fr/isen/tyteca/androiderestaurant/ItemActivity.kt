@@ -5,11 +5,13 @@ import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
+import android.view.View
 import android.widget.TextView
 import com.squareup.picasso.Picasso
 import fr.isen.tyteca.androiderestaurant.databinding.ActivityItemBinding
 import fr.isen.tyteca.androiderestaurant.model.Items
 import android.widget.ImageView
+import com.google.android.material.snackbar.Snackbar
 
 @Suppress("DEPRECATION")
 class ItemActivity : AppCompatActivity() {
@@ -60,6 +62,10 @@ class ItemActivity : AppCompatActivity() {
                 }
                 val number = addition * priceunique!!
                 binding.prixText.text = number.toString() + "€"
+                binding.prixText.setOnClickListener{
+                    val view = findViewById<View>(android.R.id.content)
+                    Snackbar.make(view, "Vous avez pris "+number.toString()+"€", Snackbar.LENGTH_SHORT).show()
+                }
             }
         }
 
@@ -73,6 +79,10 @@ class ItemActivity : AppCompatActivity() {
                 )
                 val number = addition * priceunique!!
                 binding.prixText.text = number.toString() + "€"
+                binding.prixText.setOnClickListener{
+                    val view = findViewById<View>(android.R.id.content)
+                    Snackbar.make(view, "Vous avez pris "+number.toString()+"€", Snackbar.LENGTH_SHORT).show()
+                }
             }
         }
 
