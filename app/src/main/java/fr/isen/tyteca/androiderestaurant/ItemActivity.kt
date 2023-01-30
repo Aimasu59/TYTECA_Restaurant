@@ -1,5 +1,6 @@
 package fr.isen.tyteca.androiderestaurant
 
+import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,9 @@ import fr.isen.tyteca.androiderestaurant.databinding.ActivityItemBinding
 import fr.isen.tyteca.androiderestaurant.model.Items
 import android.widget.ImageView
 import com.google.android.material.snackbar.Snackbar
+import com.google.gson.Gson
+import java.io.File
+import java.io.FileOutputStream
 
 @Suppress("DEPRECATION")
 class ItemActivity : AppCompatActivity() {
@@ -65,6 +69,11 @@ class ItemActivity : AppCompatActivity() {
                 binding.prixText.setOnClickListener{
                     val view = findViewById<View>(android.R.id.content)
                     Snackbar.make(view, "Vous avez pris "+number.toString()+"€", Snackbar.LENGTH_SHORT).show()
+                    val basket = mapOf(item.nameFr to addition, "total" to number.toString())
+                    val basketJson = Gson().toJson(basket)
+                    val fileOutputStream = openFileOutput("basket.json", Context.MODE_PRIVATE)
+                    fileOutputStream.write(basketJson.toByteArray())
+                    fileOutputStream.close()
                 }
             }
         }
@@ -82,6 +91,11 @@ class ItemActivity : AppCompatActivity() {
                 binding.prixText.setOnClickListener{
                     val view = findViewById<View>(android.R.id.content)
                     Snackbar.make(view, "Vous avez pris "+number.toString()+"€", Snackbar.LENGTH_SHORT).show()
+                    val basket = mapOf(item.nameFr to addition, "total" to number.toString())
+                    val basketJson = Gson().toJson(basket)
+                    val fileOutputStream = openFileOutput("basket.json", Context.MODE_PRIVATE)
+                    fileOutputStream.write(basketJson.toByteArray())
+                    fileOutputStream.close()
                 }
             }
         }
