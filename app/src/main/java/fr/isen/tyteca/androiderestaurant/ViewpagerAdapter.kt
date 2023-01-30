@@ -33,7 +33,7 @@ class ViewpagerAdapter(
 
     override fun onBindViewHolder(holder: ViewPagerHolder, position: Int) {
         val label = labelList[position]
-            if (label.isNotEmpty()) {
+        if (label.isNotEmpty()) {
                 Picasso.get().load(label).into(holder.imageCarrousel)
             }
 
