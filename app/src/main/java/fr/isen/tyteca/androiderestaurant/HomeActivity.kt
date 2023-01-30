@@ -1,6 +1,8 @@
 package fr.isen.tyteca.androiderestaurant
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import fr.isen.tyteca.androiderestaurant.databinding.ActivityHomeBinding
@@ -17,6 +19,7 @@ class HomeActivity : AppCompatActivity() {
         //setContentView(R.layout.activity_home)
         val actionBar = supportActionBar
         actionBar?.title = "Momo la frite kebab"
+        supportActionBar!!.setBackgroundDrawable(ColorDrawable(Color.parseColor("#FCAC2A")))
         val Log = Logger.getLogger(HomeActivity::class.java.name)
 
 
